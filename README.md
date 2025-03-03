@@ -83,39 +83,6 @@
 
 MIT License
 
-## Развертывание на GitHub Pages
-
-1. Создайте новый репозиторий на GitHub
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git branch -M main
-   git remote add origin https://github.com/ваш-username/название-репозитория.git
-   git push -u origin main
-   ```
-
-2. Настройте GitHub Pages
-   - Перейдите в настройки репозитория (Settings)
-   - В левом меню найдите "Pages"
-   - В разделе "Source" выберите ветку "main"
-   - В разделе "Folder" выберите "/ (root)"
-   - Нажмите "Save"
-
-3. Доступ к приложению
-   - После активации GitHub Pages ваше приложение будет доступно по адресу:
-   ```
-   https://ваш-username.github.io/название-репозитория/
-   ```
-
-4. Обновление приложения
-   ```bash
-   git add .
-   git commit -m "Update application"
-   git push
-   ```
-
-Примечание: После каждого push на GitHub, обновление на GitHub Pages может занять несколько минут.
 
 ## Структура файлов
 
