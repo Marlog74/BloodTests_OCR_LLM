@@ -1,0 +1,796 @@
+/* Сохраняем все стили из оригинального styles.css и добавляем: */
+
+/* Стили для Tabulator */
+.tabulator {
+    background-color: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.tabulator .tabulator-header {
+    background: #f1f5f9;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.tabulator .tabulator-header .tabulator-col {
+    background: #f1f5f9;
+    border-right: 1px solid #e2e8f0;
+}
+
+.tabulator .tabulator-header .tabulator-col-content {
+    padding: 16px 24px;
+}
+
+.tabulator .tabulator-row {
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.tabulator .tabulator-row .tabulator-cell {
+    padding: 16px 24px;
+}
+
+.tabulator-row.tabulator-row-even {
+    background-color: #f8fafc;
+}
+
+.tabulator input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.tabulator input:focus {
+    border-color: #6366f1;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.sub-table {
+    margin: 10px 0;
+    padding: 10px;
+    background: #f8fafc;
+    border-radius: 8px;
+}
+
+.add-param-btn {
+    margin: 10px;
+    padding: 8px 16px;
+    background: #10b981;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.add-param-btn:hover {
+    background: #059669;
+}
+
+#table-container {
+    margin: 20px 0;
+    height: 66vh;
+} 
+
+:root {
+    --primary: #2563eb;
+    --secondary: #3b82f6;
+    --background: #f8fafc;
+    --text: #1e293b;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: var(--background);
+    color: var(--text);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.preview-container {
+    position: relative;
+    display: inline-block;
+    margin: 20px 0;
+}
+
+.zoom-lens {
+    position: absolute;
+    border: 2px solid var(--primary);
+    background: rgba(255, 255, 255, 0.2);
+    cursor: none;
+    display: none;
+    width: 100px;
+    height: 100px;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.zoom-result {
+    position: absolute;
+    right: -220px;
+    top: 0;
+    width: 200px;
+    height: 200px;
+    border: 2px solid var(--primary);
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    pointer-events: none;
+    border-radius: 4px;
+}
+
+.tabs {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.tab-button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    background: #fff;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.tab-button.active {
+    background: var(--primary);
+    color: white;
+}
+
+#preview {
+    max-width: 100%;
+    max-height: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    cursor: default;
+}
+
+.processing-options {
+    margin: 20px 0;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.loader {
+    display: none;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--primary);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+/* Стили для таба редактирования */
+#editTab {
+    background: #f8fafc;
+    padding: 24px;
+    border-radius: 16px;
+}
+
+.button-container {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.button-container button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.button-container button:first-child {
+    background: #10b981;
+}
+
+.button-container button:first-child:hover {
+    background: #059669;
+}
+
+.button-container button:last-child {
+    background: #6366f1;
+}
+
+.button-container button:last-child:hover {
+    background: #4f46e5;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+th {
+    background: #f1f5f9;
+    color: #334155;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 16px 24px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+td {
+    padding: 16px 24px;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 14px;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover {
+    background: #f8fafc;
+}
+
+td input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    background: transparent;
+}
+
+td input:focus {
+    border-color: #6366f1;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.delete-btn {
+    background: #ef4444;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+    background: #dc2626;
+}
+
+.mode-switcher {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.mode-btn {
+    background: #e0e0e0;
+    color: var(--text);
+}
+
+.mode-btn.active {
+    background: var(--secondary);
+}
+
+.settings-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 500px;
+    max-width: 90%;
+}
+
+.modal-row {
+    margin-bottom: 1rem;
+}
+
+.modal-row label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.modal-row input,
+.modal-row textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.modal-row input[type="number"] {
+    width: 80px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.modal-row input[type="number"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+.settings-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Стили для тулбокса */
+.toolbox {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: flex;
+    gap: 8px;
+    z-index: 500;
+    margin: 20px 0;
+    position: sticky;
+    top: 0;
+}
+
+.tool-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+    background: #f1f5f9;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+
+.tool-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+.tool-btn svg path {
+    fill: #334155;
+}
+
+.tool-btn:hover {
+    background: #e2e8f0;
+}
+
+.tool-btn.active {
+    background: var(--primary);
+}
+
+.tool-btn.active svg path {
+    fill: white;
+}
+
+.tool-btn[data-tool="brush"]::after {
+    content: "Карандаш";
+}
+.tool-btn[data-tool="eraser"]::after {
+    content: "Ластик";
+}
+.tool-btn[data-tool="rect"]::after {
+    content: "Прямоугольник";
+}
+.tool-btn[data-tool="undo"]::after {
+    content: "Отменить";
+}
+.tool-btn[data-tool="redo"]::after {
+    content: "Вернуть";
+}
+.tool-btn[data-tool="magnifier"]::after {
+    content: "Лупа";
+}
+
+.tool-btn[data-tool="uploadImg"]::after {
+    content: "Выгрузить картинку";
+}
+
+.tool-btn[data-tool="newImg"]::after {
+    content: "Новая картинка";
+}
+
+.tool-btn[data-tool="crop"]::after {
+    content: "Обрезка области";
+}
+
+.tool-btn::after {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    background: #1e293b;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+
+.tool-btn:hover::after {
+    opacity: 1;
+}
+
+.brush-size-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 10px;
+}
+
+#brushSize {
+    width: 80px;
+}
+
+.preview-container {
+    position: relative;
+    margin: 20px 0;
+    display: none;
+}
+
+.preview-container.active {
+    display: block;
+}
+
+#previewCanvas {
+    max-width: 100%;
+    max-height: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.upload-zone {
+    border: 2px dashed var(--primary);
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    margin: 20px 0;
+    background: white;
+    transition: all 0.3s;
+}
+
+.upload-zone.hidden {
+    display: none;
+}
+
+/* Замена стилей для mode-switcher */
+.mode-toggle {
+    display: inline-flex;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 4px;
+    border: 1px solid #e2e8f0;
+}
+
+.toggle-option {
+    padding: 8px 24px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-weight: 500;
+    color: #64748b;
+    transition: all 0.2s;
+    position: relative;
+    border-radius: 6px;
+}
+
+.toggle-option.active {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.toggle-option:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.toggle-option:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.toggle-option:not(.active):hover {
+    background: #f1f5f9;
+}
+
+/* Стили для кнопки запуска */
+.start-analysis-btn {
+    padding: 12px 36px;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 2px 4px rgba(0,0,0,0.1),
+        0 4px 6px -1px rgba(37, 99, 235, 0.1);
+}
+
+.start-analysis-btn:hover {
+    background: var(--secondary);
+    transform: translateY(-1px);
+    box-shadow: 
+        0 4px 6px rgba(0,0,0,0.1),
+        0 8px 10px -2px rgba(37, 99, 235, 0.2);
+}
+
+.start-analysis-btn:active {
+    transform: translateY(0);
+    box-shadow: 
+        0 2px 3px rgba(0,0,0,0.1),
+        inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Анимация точки */
+.pulse-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 50%;
+    margin-right: 12px;
+    position: relative;
+}
+
+.start-analysis-btn:hover .pulse-dot {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.3); opacity: 0.4; }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+
+
+/* Улучшенные стили для точек и линий обрезки */
+.crop-point {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ff3b30;
+    border: 3px solid white;
+    border-radius: 50%;
+    cursor: move;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+    transition: transform 0.1s ease, background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.crop-point:hover, .crop-point:active {
+    transform: translate(-50%, -50%) scale(1.5);
+    background: #ff9500;
+}
+
+.crop-point-label {
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    text-shadow: 0 0 2px black;
+    pointer-events: none;
+}
+
+.crop-preview-line {
+    position: absolute;
+    height: 4px;
+    background: #ff3b30;
+    transform-origin: 0 0;
+    pointer-events: none;
+    opacity: 0.9;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+#confirmCrop.hidden {
+    display: none !important;
+}
+
+/* Стили для отладочной панели */
+.crop-debug-panel {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    max-width: 300px;
+    z-index: 1000;
+}
+
+.crop-debug-panel h4 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+#cropPointsInfo {
+    margin-bottom: 8px;
+    font-family: monospace;
+    white-space: pre;
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+.debug-btn {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.debug-btn:hover {
+    background: #dc2626;
+}
+
+/* Стили для модального окна настроек */
+.modal-content h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #334155;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+}
+
+.refresh-btn {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.refresh-btn:hover {
+    background: #2563eb;
+}
+
+/* Стили для выпадающего списка */
+select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: white;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Стили для модального окна ручного ввода текста */
+#manualTextInput {
+    width: 100%;
+    min-height: 200px;
+    padding: 10px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+/* Стили для кнопок импорта/экспорта настроек */
+.settings-io {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+    justify-content: center;
+}
+
+.settings-io-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #334155;
+    transition: all 0.2s ease;
+}
+
+.settings-io-btn:hover {
+    background: #f1f5f9;
+    border-color: #94a3b8;
+}
+
+.settings-io-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Стили для выпадающего списка моделей */
+#apiModel {
+    flex: 1;
+    margin-right: 10px;
+}
