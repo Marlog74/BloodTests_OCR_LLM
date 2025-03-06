@@ -7,7 +7,7 @@
 
 ### Локальная демонстрация
 <video width="560" height="315" controls>
-  <source src="assets/demo.webm" type="video/webm">
+  <source src="assets/video/demo.webm" type="video/webm">
   Ваш браузер не поддерживает видео тег.
 </video>
 
