@@ -3,7 +3,14 @@
 Веб-приложение для анализа изображений анализов крови с использованием OCR и LLM технологий.
 
 ### Видео-демонстрация
-<iframe width="560" height="315" src="https://www.youtube.com/embed/UR6hrt70veQ" title="Демонстрация работы приложения" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Демонстрация работы приложения](https://img.youtube.com/vi/UR6hrt70veQ/0.jpg)](https://youtu.be/UR6hrt70veQ)
+
+### Локальная демонстрация
+<video width="560" height="315" controls>
+  <source src="assets/demo.webm" type="video/webm">
+  Ваш браузер не поддерживает видео тег.
+</video>
+
 
 
 ## Основные возможности
